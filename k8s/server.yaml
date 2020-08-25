@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: socket-server-deployment
+  labels:
+    app: socket-server
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: socket-server
+  template:
+    metadata:
+      labels:
+        app: socket-server
+    spec:
+      containers:
+      - name: socket-server-container
+        image: samchan0221/dummy-node-socket
+        command: ["npm", "run", "server:start"]
+        ports:
+        - containerPort: 3000
+        env:
+        - name: podId
+          valueFrom:
+            resourceFieldRef:
+              containerName: socket-server-container
+              resource: metadata.name
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: socket-server-svc
+  labels:
+    app: socket-server-svc
+spec:
+  ports:
+  - port: 80
+    containerPort: 3000
+  selector:
+    app: socket-server
