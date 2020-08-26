@@ -4,10 +4,8 @@ import http from 'http';
 let connectionCount = 0;
 
 const server = http.createServer((req, res) => {
-    if(req.url === '/'){
-        res.write(connectionCount.toString());
-        res.end();
-    }
+    res.write(connectionCount.toString());
+    res.end();
 });
 
 const ioServer = io(server);
