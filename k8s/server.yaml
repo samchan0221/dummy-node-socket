@@ -20,12 +20,6 @@ spec:
         command: ["npm", "run", "server:start"]
         ports:
         - containerPort: 3000
-        env:
-        - name: podId
-          valueFrom:
-            resourceFieldRef:
-              containerName: socket-server-container
-              resource: metadata.name
 ---
 apiVersion: v1
 kind: Service
