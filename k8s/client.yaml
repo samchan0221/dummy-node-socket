@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: socket-client-container
-        image: samchan0221/dummy-node-socket
+        image: samchan0221/dummy-node-socket:v0.0.1
         command: ["npm", "run", "client:start"]
         ports:
         - containerPort: 3001

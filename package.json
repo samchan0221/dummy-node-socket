@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc --build",
     "server:start": "node build/server.js",
     "client:start": "node build/client.js"
   },

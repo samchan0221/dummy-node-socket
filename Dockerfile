@@ -8,7 +8,8 @@ COPY package-lock.json .
 RUN npm ci
 
 # compile
-RUN tsc
+COPY . .
+RUN npm run tsc
 
 # expose ports
 EXPOSE 3000 3001
