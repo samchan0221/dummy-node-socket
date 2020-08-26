@@ -36,6 +36,6 @@ metadata:
 spec:
   ports:
   - port: 80
-    containerPort: 3001
+    targetPort: 3001
   selector:
     app: socket-client
